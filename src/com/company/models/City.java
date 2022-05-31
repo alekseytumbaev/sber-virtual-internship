@@ -1,10 +1,18 @@
 package com.company.models;
 
+/**
+ * Модель для хранения информации о городе
+ */
 public class City {
+    /** Наименование города*/
     private String name;
+    /** Регион*/
     private String region;
+    /** Федеральный округ*/
     private String district;
+    /** Население*/
     private int population;
+    /** Дата основания или первого упоминания*/
     private String foundation;
 
     public City(String name, String region, String district, int population, String foundation) {
@@ -26,8 +34,6 @@ public class City {
                 '}';
     }
 
-    public City() {
-    }
 
     public String getName() {
         return name;
@@ -47,25 +53,5 @@ public class City {
 
     public String getFoundation() {
         return foundation;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public void setPopulation(int population) {
-        this.population = population;
-    }
-
-    public void setFoundation(String foundation) {
-        this.foundation = foundation;
     }
 }
