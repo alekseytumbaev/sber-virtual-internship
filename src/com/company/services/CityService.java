@@ -28,14 +28,16 @@ public class CityService {
     }
 
     /**
-     * Вывод в консоль списка городов, отсортированного по наименованию города
+     * Вывод в консоль списка городов, отсортированного по наименованию
+     * в алфавитном порядке по убыванию с учетом регистра
      */
     public void printCitiesSortedByName() {
         cityRepository.getCitiesSortedByName().forEach(System.out::println);
     }
 
     /**
-     * Вывод в консоль списка городов, отсортированного по федеральному округу и наименованию города
+     * Вывод в консоль списка городов, отсортированного по федеральному округу и наименованию
+     *  в алфавитном порядке по убыванию с учетом регистра
      */
     public void printCitiesSortedByDistrictAndName() {
         cityRepository.getCitiesSortedByDistrictAndName().forEach(System.out::println);
