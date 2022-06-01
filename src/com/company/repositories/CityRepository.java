@@ -4,10 +4,7 @@ import com.company.models.City;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Класс преобразует данные из файла в список городов, хранит и выдает этот список.

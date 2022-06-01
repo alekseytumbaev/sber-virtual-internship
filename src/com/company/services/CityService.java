@@ -1,5 +1,6 @@
 package com.company.services;
 
+import com.company.models.City;
 import com.company.repositories.CityRepository;
 
 /**
@@ -41,5 +42,23 @@ public class CityService {
      */
     public void printCitiesSortedByDistrictAndName() {
         cityRepository.getCitiesSortedByDistrictAndName().forEach(System.out::println);
+    }
+
+    /**
+     * Преобразование в массив списка городов, вывод индекса и числа жителей самого густонаселенного города
+     */
+    public void printMostPopulousCityIndexAndPopulation() {
+        int maxInd = 0, maxPopulation = 0;
+
+        City[] citiesArray = cityRepository.getCities().toArray(new City[0]); //получаем список и преобразуем в массив
+
+        //ищем максимальное число жителей и индекс
+        for (int i = 0; i < citiesArray.length; i++)
+            if (citiesArray[i].getPopulation() > maxPopulation){
+                maxPopulation = citiesArray[i].getPopulation();
+                maxInd = i;
+            }
+
+        System.out.println("[" + maxInd + "] = " + maxPopulation);
     }
 }
