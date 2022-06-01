@@ -26,4 +26,18 @@ public class CityService {
     public void printCities() {
         cityRepository.getCities().forEach(System.out::println);
     }
+
+    /**
+     * Вывод в консоль списка городов, отсортированного по наименованию города
+     */
+    public void printCitiesSortedByName() {
+        cityRepository.getCitiesSortedByName().forEach(System.out::println);
+    }
+
+    /**
+     * Вывод в консоль списка городов, отсортированного по федеральному округу и наименованию города
+     */
+    public void printCitiesSortedByDistrictAndName() {
+        cityRepository.getCitiesSortedByDistrictAndName().forEach(System.out::println);
+    }
 }

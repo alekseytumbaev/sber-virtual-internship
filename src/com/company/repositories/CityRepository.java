@@ -5,6 +5,7 @@ import com.company.models.City;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,10 +31,8 @@ public class CityRepository {
             cities = new ArrayList<>();
 
             //пока в файле есть строки
-            for(int i = 0; scanner.hasNext(); i++){
+            for(int i = 0; scanner.hasNext(); i++)
                 cities.add(parseCityCSVLine(scanner.next())); //парсим строку в город и добавляем в список
-                System.out.println(cities.get(i).toString()); //выводим очередной город
-            }
 
             scanner.close();
     }
@@ -67,6 +66,30 @@ public class CityRepository {
      */
     public List<City> getCities() {
         return new ArrayList<>(cities);
+    }
+
+    /**
+     * Получение списка городов, отсортированного по наименованию города
+     *
+     * @return {@link List<City>}
+     */
+    public List<City> getCitiesSortedByName() {
+        List<City> sortedCities = new ArrayList<>(cities);
+        sortedCities.sort(Comparator.comparing(City::getName));
+
+        return sortedCities;
+    }
+
+    /**
+     * Получение списка городов, отсортированного по федеральному округу и наименованию города
+     *
+     * @return {@link List<City>}
+     */
+    public List<City> getCitiesSortedByDistrictAndName() {
+        List<City> sortedCities = new ArrayList<>(cities);
+        sortedCities.sort(Comparator.comparing(City::getDistrict).thenComparing(City::getName));
+
+        return sortedCities;
     }
 }
 
