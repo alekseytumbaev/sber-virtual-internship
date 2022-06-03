@@ -4,6 +4,7 @@ import com.company.models.City;
 import com.company.repositories.CityRepository;
 
 import java.text.MessageFormat;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -180,5 +181,30 @@ public class CityService {
         City temp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = temp;
+    }
+
+    /**
+     * Вывод региона и количества городов в нем.
+     * Регионы отсортированы в алфавитном порядке по убыванию с учетом регистра.
+     */
+    public void printNumberOfCitiesInEachRegion() {
+        List<City> cities = cityRepository.getCitiesSortedByRegion(); //получаем отсортированный по региону список
+
+        String tempRegion = cities.get(0).getRegion(); //запоминаем первый регион
+        int k = 0; //кол-во городов изначально 0
+
+        //Проходимся по списку городов
+        for (City c : cities) {
+            //если у города такой же регион - увеличиваем счетчик
+            if (c.getRegion().equals(tempRegion))
+                k++;
+
+            //если регион другой
+            else {
+                System.out.println(tempRegion + " - " + k); //выводим прошлый регион и кол-во городов в нем
+                tempRegion = c.getRegion(); //запоминаем новый регион
+                k = 1;
+            }
+        }
     }
 }

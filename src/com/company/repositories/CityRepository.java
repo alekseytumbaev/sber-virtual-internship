@@ -90,6 +90,19 @@ public class CityRepository {
 
         return sortedCities;
     }
+
+    /**
+     * Получение списка городов, отсортированного по региону
+     * в алфавитном порядке по убыванию с учетом регистра
+     *
+     * @return {@link List<City>}
+     */
+    public List<City> getCitiesSortedByRegion() {
+        List<City> sortedCities = new ArrayList<>(cities);
+        sortedCities.sort(Comparator.comparing(City::getRegion));
+
+        return sortedCities;
+    }
 }
 
 
